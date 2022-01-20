@@ -1,0 +1,39 @@
+
+.payment{
+   /* display:flex;
+   flex-direction:column; */
+   background-color:white;
+}
+.payment__container > h1{
+    font-weight:400;
+    text-align:center;
+    background-color:rgb(234,237,237);
+    padding:10px;
+    border:1px solid lightgray;
+ }
+/* .payment__container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    border:1px solid gray;
+} */
+.payment__section{
+    display:flex;
+    align-items:start;
+    padding:20px;
+    margin:0,20px;
+    border:1px solid lightgray;
+    
+}
+.payment__title{
+  flex:0.2;
+}
+.payment__address{
+    flex:0.8;
+  }
+  .payment__items{
+    flex:0.8;
+  }
+.payment__details{
+    flex:0.8; 
+}

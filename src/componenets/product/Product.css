@@ -4,12 +4,17 @@
     background-color:white;
     align-items:center;
     justify-content:flex-end;
-    margin:10px;
+    margin:15px;
     padding:20px;
     width:100%;
     max-height:400px;
     min-width:100px;
     z-ndex:-1;
+}
+.product:hover{
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+    box-shadow: 10px 10px 10px 10px grey;
 }
 .product__info{
     height:100px;
