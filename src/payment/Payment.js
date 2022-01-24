@@ -8,6 +8,7 @@ import CurrencyFormat from 'react-currency-format';
 import { getTotalPrice } from '../reducer'
 import axios from '../axios';
 import { useNavigate} from 'react-router-dom'
+import { db } from '../Firebase'
 
 function Payment() {
     const [{ basket,user }, dispatch] = useStateValue();
@@ -35,7 +36,7 @@ function Payment() {
       getClientSecret();
     },[basket])
     console.log("The Client Secret >>>",clientSecret);
-
+    console.log(':User >>>', user)
     const handleSubmit = async(e) =>{
         e.preventDefault();
         setProcessing(true);
@@ -45,6 +46,14 @@ function Payment() {
                 card: elements.getElement(CardElement) 
             }
         }).then(({ paymentIntent}) =>{
+           
+            db.collection('users').doc(user.id).collection('orders').doc(paymentIntent.id).set({
+                basket:basket,
+                total:paymentIntent.amount,
+                created:paymentIntent.created
+            })
+
+
             setSucceeded(true);
             setError(null);
             setProcessing(false);

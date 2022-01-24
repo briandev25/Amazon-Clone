@@ -2,12 +2,14 @@ import './App.css';
 import Header from './componenets/header/Header';
 import Home from './componenets/home/Home';
 import Checkout from './componenets/checkout/Checkout';
-import {Routes,Route } from 'react-router-dom'
+import Orders from './orders/Orders';
 import Login from './login/Login';
+import Payment from './payment/Payment';
+
+import {Routes,Route } from 'react-router-dom'
 import { useStateValue } from './StateProvider'
 import { useEffect } from 'react';
 import { auth } from './Firebase';
-import Payment from './payment/Payment';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
@@ -49,7 +51,10 @@ function App() {
        </Elements>
        </>} />
        <Route path ='/login' element ={<Login />} />
-       
+       <Route path ='/orders' element ={ <>
+       <Header />
+       <Orders />
+       </>}/>
       </Routes>
     </div>
   );
